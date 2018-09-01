@@ -3,8 +3,11 @@ package domaine;
 import java.util.ArrayList;
 import java.util.Date;
 
+enum TypeEvenement {Stage,Club,Perso}
+
 public class Evenement
 {
+	private TypeEvenement type;
 	private String nom;
 	private Date dateDebut;
 	private Date dateFin;
@@ -12,10 +15,11 @@ public class Evenement
 	private ArrayList <String> planActions;
 	private ArrayList <String> pointsVigilance;
 	
-	public Evenement(String nom, Date dateDebut, Date dateFin, String lieu, ArrayList<String> planActions,
+	public Evenement(TypeEvenement type,String nom, Date dateDebut, Date dateFin, String lieu, ArrayList<String> planActions,
 			ArrayList<String> pointsVigilance)
 	{
 		super();
+		this.setType(type);
 		this.nom = nom;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -24,6 +28,14 @@ public class Evenement
 		this.pointsVigilance = pointsVigilance;
 	}
 
+	public TypeEvenement getType() {
+		return type;
+	}
+
+	public void setType(TypeEvenement type) {
+		this.type = type;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -71,6 +83,5 @@ public class Evenement
 	public void setPointsVigilance(ArrayList<String> pointsVigilance) {
 		this.pointsVigilance = pointsVigilance;
 	}
-	
 	
 }
